@@ -76,6 +76,6 @@ window.onload = function () {
 // Load project
 loadProject = (project) => {
   projectContainer.setAttribute("src", `master/assets/media/projects/${project.img}`);
-  projectHref.setAttribute("href", `https://ladunjexa.github.io/Building-Blocks-of-Web-Development-Session/${project.name}/}`);
+  projectHref.setAttribute("href", `https://ladunjexa.github.io/Building-Blocks-of-Web-Development-Session/${project.name}/`);
   projectHrefBtn.innerHTML = `Go to ${project.name.replace("-", " ")}`;
 };
