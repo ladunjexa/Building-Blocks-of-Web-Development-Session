@@ -70,7 +70,7 @@ window.onload = function () {
   });
 
   // Load random initial project
-  document.getElementById(`button-${projectsList[Math.floor(Math.random() * projectsList.length)].name}`).click();
+  loadProject(projectsList[Math.floor(Math.random() * projectsList.length)]);
 };
 
 // Load project
