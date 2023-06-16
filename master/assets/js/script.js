@@ -63,7 +63,7 @@ window.onload = function () {
     button.id = `button-${project.name}`;
     button.className = buttonProps.className;
     button.type = buttonProps.type;
-    button.textContent = `${formatProjectName(projectName)}`;
+    button.textContent = `${formatProjectName(project.name)}`;
     button.onclick = () => loadProject(project);
 
     portfolioList.appendChild(button);
@@ -77,7 +77,7 @@ window.onload = function () {
 const loadProject = (project) => {
   projectContainer.setAttribute("src", `master/assets/media/projects/${project.img}`);
   projectHref.setAttribute("href", `https://ladunjexa.github.io/Building-Blocks-of-Web-Development-Session/${project.href ?? project.name}/`);
-  projectHrefBtn.innerHTML = `Go to ${formatProjectName(projectName)}`;
+  projectHrefBtn.innerHTML = `Go to ${formatProjectName(project.name)}`;
 };
 
 function formatProjectName(name) {
