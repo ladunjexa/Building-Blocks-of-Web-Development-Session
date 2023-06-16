@@ -1,9 +1,9 @@
 let projectsList = [
-  { name: "VarietyOfFoods-Web", img: "vof-mockup.png" },
-  { name: "CreativeDesign-Web", img: "cd-mockup.png" },
-  { name: "BusinessAgency-Web", img: "bac-mockup.png" },
-  { name: "Apple eCommerce-Web", img: "apple-ec-mockup.png" },
-  { name: "Developer Portfolio-Web", img: "psm-mockup.png" },
+  { name: "Variety-Of-Foods-Web", img: "vof-mockup.png", href: "VarietyOfFoods-Web" },
+  { name: "Creative-Design-Web", img: "cd-mockup.png", href: "CreativeDesign-Web" },
+  { name: "Business-Agency-Web", img: "bac-mockup.png", href: "BusinessAgency-Web" },
+  { name: "Apple-eCommerce-Web", img: "apple-ec-mockup.png" },
+  { name: "Developer-Portfolio-Web", img: "psm-mockup.png" },
   { name: "Cyberplex-Web", img: "cyberplex-mockup.png" },
   { name: "Architect-Web", img: "architect-mockup.png" },
   { name: "Travelio-Web", img: "travelio-mockup.png" },
@@ -63,7 +63,7 @@ window.onload = function () {
     button.id = `button-${project.name}`;
     button.className = buttonProps.className;
     button.type = buttonProps.type;
-    button.textContent = `${project.name.slice(0, project.name.length - 4)}`;
+    button.textContent = `${formatProjectName(projectName)}`;
     button.onclick = () => loadProject(project);
 
     portfolioList.appendChild(button);
@@ -74,8 +74,15 @@ window.onload = function () {
 };
 
 // Load project
-loadProject = (project) => {
+const loadProject = (project) => {
   projectContainer.setAttribute("src", `master/assets/media/projects/${project.img}`);
-  projectHref.setAttribute("href", `https://ladunjexa.github.io/Building-Blocks-of-Web-Development-Session/${project.name}/`);
-  projectHrefBtn.innerHTML = `Go to ${project.name.replace("-", " ")}`;
+  projectHref.setAttribute("href", `https://ladunjexa.github.io/Building-Blocks-of-Web-Development-Session/${project.href ?? project.name}/`);
+  projectHrefBtn.innerHTML = `Go to ${formatProjectName(projectName)}`;
 };
+
+function formatProjectName(name) {
+  return name.slice(0, name.length - 4)
+    .split("-")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ");
+}
